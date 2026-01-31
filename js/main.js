@@ -18,7 +18,6 @@ function countdownTimer(){
     return new Promise((resolve)=>{
       for (let i = 3; i >= 0; i--){
         setTimeout(()=>{
-          console.log(i);
           document.querySelector('.js-timer').textContent = i;
           if(i===0)resolve();
         }, 1000*(3-i));
@@ -61,7 +60,6 @@ async function playComputer(limit, computerSequence){
   for(let i = 0; i<=limit; i++){
     addToSequence(computerSequence, colors[getRandomNumber(0,3)]);
   }
-  console.log(computerSequence);
   await displaySequence(computerSequence);
 }
 
@@ -79,20 +77,17 @@ function compareSequences(sequence1, sequence2){
   if(sequence1.length !== sequence2.length){
     score.losses += 1;
     localStorage.setItem('score', JSON.stringify(score));
-    console.log(score);
     return 'You Lose.';
   }
   for(let i = 0; i<=computerSequence.length; i++){
     if(computerSequence[i] !== playerSequence[i]){
       score.losses += 1;
       localStorage.setItem('score', JSON.stringify(score));
-      console.log(score);
       return 'You Lose.';
     }
   }
   score.wins +=1;
   localStorage.setItem('score', JSON.stringify(score));
-  console.log(score);
   return'You Win.';
 }
 
@@ -169,7 +164,7 @@ document.querySelector('.js-replay').addEventListener('click', ()=>{
   playGame()
 });
 document.querySelector('.js-quit').addEventListener('click', ()=>{
-  window.location.href = 'landing.html';
+  window.location.href = 'index.html';
 })
 if (!difficulty){
   window.location.href = 'index.html';
