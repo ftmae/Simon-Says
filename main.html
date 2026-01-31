@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simon Plays</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=PT+Serif+Caption:ital@0;1&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body class="bg-light">
+    <div class="js-timer-section fixed full-screen bg-light flex flex-center-horizontal flex-center-vertical layer-3 d-none">
+        <p class="js-timer ff-serif fs-900 letter-spacing animate-timer-text">1</p>
+    </div>
+    <div class="js-popup fixed full-screen bg-light flex flex-column flex-center-horizontal flex-center-vertical layer-2 d-none" style="--gap: 2rem;" >
+        <p class="js-popup-text ff-serif fs-900 letter-spacing">You Win.</p>
+        <div class="flex" style="--gap: 2rem;">
+            <button class="js-replay small-button ff-sans-cond fs-400"><svg style="transform: translateY(1px);" xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#36454f"><path d="M480-80q-75 0-140.5-28T225-185q-49-49-77-114.5T120-440h60q0 125 87.5 212.5T480-140q125 0 212.5-87.5T780-440q0-125-85-212.5T485-740h-23l73 73-41 42-147-147 147-147 41 41-78 78h23q75 0 140.5 28T735-695q49 49 77 114.5T840-440q0 75-28 140.5T735-185q-49 49-114.5 77T480-80Z"/></svg>Replay</button>
+            <button class="js-quit small-button ff-sans-cond fs-400"><svg style="transform: translateY(2px);" xmlns="http://www.w3.org/2000/svg" height="22px" viewBox="0 -960 960 960" width="22px" fill="#36454f"><path d="M443.79-444q15.21 0 25.71-10.29t10.5-25.5q0-15.21-10.29-25.71t-25.5-10.5q-15.21 0-25.71 10.29t-10.5 25.5q0 15.21 10.29 25.71t25.5 10.5ZM288-145v-71l240-48v-393q0-16.92-10.5-30.46T490-704l-202-40v-72l217 40q41.8 8.07 68.4 41.35Q600-701.37 600-657v450l-312 62Zm-144 1v-72h72v-528q0-30 21.15-51T288-816h384q30 0 51 21t21 51v528h72v72H144Zm144-72h384v-528H288v528Z"/></svg>Quit</button>
+        </div>
+    </div>
+    <div class="js-game-body">
+        <div class="score-header fixed layer-1">
+            <p class="ff-sans fs-350">Wins: <span class="js-wins">0</span></p>
+            <p class="ff-sans fs-350">Losses: <span class="js-losses">0</span></p>
+            <button class="js-reset small-button ff-sans-cond fs-350"><svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#36454f"><path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/></svg>Reset Score</button>
+        </div>
+        <div class="tiles-section">
+            <div><p class="js-moves ff-sans fs-800 opaque">Simon's Turn.</p></div> 
+            <div class="button-row">
+                <button class="js-color-red js-color-button large-button bg-red black-border" data-color="red"><span class="sr-only js-button-text">Red</span></button> 
+                <button class="js-color-blue js-color-button large-button bg-blue black-border" data-color="blue"><span class="sr-only js-button-text">Blue</span></button>
+                <button class="js-color-green js-color-button large-button bg-green black-border" data-color="green"><span class="sr-only js-button-text">Green</span></button>
+                <button class="js-color-yellow js-color-button large-button bg-yellow black-border" data-color="yellow"><span class="sr-only js-button-text">Yellow</span></button>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="js/main.js" type="module"></script>
+</html>

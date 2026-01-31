@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simon Plays</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=PT+Serif+Caption:ital@0;1&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body class="bg-light">
+    <div class="tiles-section">
+        <h1 class="ff-sans fs-800" style="font-weight: 200;">Select Difficulty</h1>
+        <div class="button-row">
+            <button class="js-difficulty-button large-button ff-sans bg-rose text-white fs-700 button-hover opaque transparent-border" data-buttonType="Beginner">Beginner</button>
+            <button class="js-difficulty-button large-button ff-sans bg-rose text-white fs-700 button-hover opaque transparent-border" data-buttonType="Intermediate">Intermediate</button>
+            <button class="js-difficulty-button large-button ff-sans bg-rose text-white fs-700 button-hover opaque transparent-border" data-buttonType="Hard">Hard</button>
+        </div>
+    </div>
+</body>
+<script type="module">
+    import {animateBlocks} from "./js/animation.js";
+    document.querySelectorAll('.js-difficulty-button').forEach((button)=>{
+       button.addEventListener('click', ()=>{
+        let difficulty = button.dataset.buttontype;
+        window.location.href = `main.html?difficulty=${difficulty}`;
+       });
+    });
+    animateBlocks(document.querySelectorAll('.js-difficulty-button'));
+</script>
+</html>
