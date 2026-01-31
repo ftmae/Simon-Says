@@ -172,7 +172,7 @@ document.querySelector('.js-quit').addEventListener('click', ()=>{
   window.location.href = 'landing.html';
 })
 if (!difficulty){
-  window.location.href = 'landing.html';
+  window.location.href = 'index.html';
 }
 countdownTimer().then(()=>{
   document.querySelector('.js-timer-section').classList.add('d-none');
