@@ -218,12 +218,15 @@ button{
 .computer-active {
     transform: scale(1.1);
 }
+
 .button-hover{
     transition: transform 0.2s ease-in;
 }
-.button-hover:hover{
-    transform: scale(1.1); 
+
+.button-hover:active {
+  transform: scale(0.95);
 }
+
 .glow-red, .glow-blue, .glow-green, .glow-yellow{
     transition: box-shadow 0.2s ease-in;
 }
@@ -344,11 +347,21 @@ button{
         display: grid;
         grid-template-columns: repeat(2, 1fr);
     }
-    
+    .button-row > :last-child:nth-child(odd){
+        grid-column: 1/-1;
+        justify-self: center;
+
+    }
 }
 
 @media (max-width:438px) {
     :root{
         --tile-size: 150px;
     }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .button-hover:hover {
+    transform: scale(1.05);
+  }
 }
