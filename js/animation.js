@@ -4,6 +4,6 @@ export function animateBlocks(blocksArray){
 
         setTimeout(()=>{
             block.classList.add('animate-blocks');
-        }, index*1500);
+        }, index*1000);
     });
 }

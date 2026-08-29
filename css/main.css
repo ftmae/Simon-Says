@@ -5,13 +5,13 @@
 :root{
     /* colors */ 
     --clr-dark: 204 19% 26%;
-    --clr-light: 30 55% 85%;
+    --clr-light: 30 38% 87%;
     --clr-white: 75 40% 98%;
     --clr-red: 3 100% 69%;
     --clr-blue: 187 71% 83%;
     --clr-green: 120 35% 82%;
     --clr-yellow: 60 96% 79%;
-    --clr-rose: 356 34% 72%;
+    --clr-rose: 354 43% 60%;
 
     /* font-sizes */
     --fs-900: 4rem;
@@ -93,6 +93,10 @@ button{
     flex-direction: column;
 }
 
+.gap-1{
+    gap: 1rem;
+}
+
 .grid{
     display: grid;
 }
@@ -152,6 +156,13 @@ button{
     justify-items:center;
 }
 
+.menu-buttons{
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    width: 20%;
+}
+
 /* element layers */
 .layer-1{
     z-index: 1;
@@ -206,6 +217,7 @@ button{
 .fs-700{ font-size: var(--fs-700); }
 .fs-400{ font-size: var(--fs-400); }
 .fs-350{ font-size: var(--fs-350); }
+.fw-200{ font-weight: 200; }
 
 /* letter-spacing */
 .letter-spacing{ letter-spacing: 0.5rem; }
@@ -264,6 +276,11 @@ button{
 }
 
 .small-button{
+    border-radius:40px;
+    padding:15px 20px;
+}
+
+.icon-button{
     display:inline-flex;
     align-items: center;
     justify-content: center;
@@ -275,11 +292,11 @@ button{
     gap:0.2rem;
 }
 
-.large-button, .small-button{
+.large-button, .icon-button, .small-button{
     transition: transform 0.2s ease-in;
 }
 
-.small-button:hover{
+.icon-button:hover{
     transform: scale(1.1); 
 }
 
@@ -288,7 +305,7 @@ button{
 /* ----------------- */
 
 .animate-blocks{
-    animation: showBlocks 0.8s cubic-bezier(.34,1.56,.64,1) forwards;
+    animation: showBlocks 0.5s cubic-bezier(.34,1.56,.64,1) forwards;
 }
 .animate-timer-text{
     animation: animateTimerText 1s ease infinite;
@@ -350,7 +367,9 @@ button{
     .button-row > :last-child:nth-child(odd){
         grid-column: 1/-1;
         justify-self: center;
-
+    }
+    .menu-buttons{
+        width: 70%
     }
 }
 
